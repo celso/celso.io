@@ -156,6 +156,8 @@ After all the fixes and improvements, this "Toastrack" is in great shape and rea
 
 I plugged my multisystem [Backbit cartridge](https://store.backbit.io/product/backbit-pro/) into the expansion port (which also includes a Kempston port for the joystick), connected the video out to my LCD using RGB and the RGBtoHDMI adapter, and an external speaker to the MIC jack, then loaded a few games and demos.
 
-In this video, I'm playing [City Connection](https://spectrumcomputing.co.uk/entry/974/ZX-Spectrum/City_Connection) for the 128K, an amazing [arcade](https://en.wikipedia.org/wiki/City_Connection) game port that my friends [Manuel Lemos](https://www.linkedin.com/in/manuellemos/), [Ricardo Pinho](https://www.linkedin.com/in/ricardodepinho/), and [Paulo Gordinho](https://www.linkedin.com/in/paulo-gordinho-6160b03/) coded back in the late 80s but sadly never got released commercially.
+In this [video](https://www.youtube.com/watch?v=x-cL_ySr5ds), I'm playing [City Connection](https://spectrumcomputing.co.uk/entry/974/ZX-Spectrum/City_Connection) for the 128K, an amazing [arcade](https://en.wikipedia.org/wiki/City_Connection) game port that my friends [Manuel Lemos](https://www.linkedin.com/in/manuellemos/), [Ricardo Pinho](https://www.linkedin.com/in/ricardodepinho/), and [Paulo Gordinho](https://www.linkedin.com/in/paulo-gordinho-6160b03/) coded back in the late 80s but sadly never got released commercially.
+
+{{< youtube x-cL_ySr5ds >}}
 
 This thing has keypad and RS232 ports, so I might try some other stuff later, but that's it for today. Had lots of fun doing this, as always.
