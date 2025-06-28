@@ -2,7 +2,7 @@
 categories: spectrum
 date: "2025-06-28T00:08:00Z"
 title: Restoring a ZX Spectrum+ Toastrack
-thumbnail: "https://celso.io/assets/images/rgb2hdmi7.jpeg"
+thumbnail: "https://celso.io/assets/toast16.jpg"
 ---
 
 I talk a lot about Commodore machines in this blog; they left a bigger dent in me growing up, but like most kids of my generation living in Portugal in the 80s, the first computers I played with were actually Sinclairs—first my friend's ZX81 and then a ZX Spectrum 48K that my parents offered me. I have many memories of playing games like the [Horace series](https://en.wikipedia.org/wiki/Horace_(video_game_series)), [Manic Miner](https://en.wikipedia.org/wiki/Manic_Miner), [Jetpac](https://en.wikipedia.org/wiki/Jetpac), or [Chuckie Egg](https://en.wikipedia.org/wiki/Chuckie_Egg) on my Spectrum.
