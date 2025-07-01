@@ -29,7 +29,7 @@ The reason this ZX Spectrum 128k is nicknamed "Toastrack" is because of the larg
 
 Fortunately, there are a few modern alternatives to replace this 7805:
 
-* Use a 2A rated [78S05](https://www.digikey.com/en/products/detail/stmicroelectronics/L78S05CV/585989) voltage regulator. Because it handles more current, it runs cooler.
+* ~~Use a 2A rated [78S05](https://www.digikey.com/en/products/detail/stmicroelectronics/L78S05CV/585989) voltage regulator. Because it handles more current, it runs cooler.~~ *Actually no, using a 2A rated 7805 shouldn't make much of a difference, the heat output is the delta between input and output voltages, unless thermal efficiency is better because they use higher quality materials.*
 * Use a Traco 2 [TSR 2-2450](https://www.digikey.com/en/products/detail/traco-power/TSR-2-2450/9383726) 5V 2A DC-DC converter, also a popular choice.
 * A DC-DC Buck Converter.
 
