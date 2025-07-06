@@ -2,7 +2,7 @@ baseURL = 'https://celso.io/'
 languageCode = 'en-us'
 title = 'Celso Martinho'
 theme = "archie"
-paginate = 5
+paginate = 10
 copyright = "© Celso Martinho"
 # Code Highlight
 pygmentsstyle = "monokai"
