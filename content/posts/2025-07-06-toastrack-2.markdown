@@ -5,7 +5,7 @@ title: ZX Spectrum+ Toastrack Part 2
 thumbnail: "https://celso.io/assets/toast29.jpg"
 ---
 
-This is a quick update from my [Restoring a ZX Spectrum+ Toasrack](/posts/2025/06/28/toastrack/) blog.
+This is a quick update from my [Restoring a ZX Spectrum+ Toastrack](/posts/2025/06/28/toastrack/) blog.
 
 ## RGB is not analog, we need more colors
 
