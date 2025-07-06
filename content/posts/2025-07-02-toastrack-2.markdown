@@ -1,0 +1,52 @@
+---
+categories: spectrum
+date: "2025-07-02T00:08:00Z"
+title: ZX Spectrum+ Toastrack Part 2
+thumbnail: "https://celso.io/assets/toast16.jpg"
+---
+
+This is a quick update from my [Restoring a ZX Spectrum+ Toasrack](/posts/2025/06/28/toastrack/) blog.
+
+## RGB is not analog, we need more colors
+
+First, I found that the [6-way IDC analog RGB extender](https://github.com/hoglet67/RGBtoHDMI/wiki/Bill-of-Materials-%28Analog-Board%29) that I used with the RGB2HDMI adapter wasn't detecting all the colors. Specifically I wasn't seeing the half bright variant of the 3-bit 8 color palette. 
+
+{{< caption image="/assets/toast22.jpg" text="6-way IDC analog RGB extender">}}
+
+As you can see I only have 8 colors.
+
+{{< caption image="/assets/toast26.jpg" text="The half bright variants are missing">}}
+
+The Spectrum uses 3-bit + half bright variant that is similar to 4-bit RGBI. The problem is that the Spectrum 128K DIN connector RGB signals are TTL, not analog, they don't have the bright signal combined. Instead there's a separate signal for bright. See the internal circuit:
+
+{{< caption image="/assets/toast27.jpg" >}}
+
+***Side note: even if the RGB signals were analog and had bright combined, the 6-way IDC analog RGB extender still wouldn't be able to detect the half bright variants because it doesn't have the necessary voltage level comparators.***
+
+[This is a great document](https://mts.speccy.cz/doc/128_rgb.pdf) explaining everything there is to know about RGB for ZX Spectrum 128, +2, +2A and +3 if you're curious.
+
+So, what we need is a [12-Bit RGBI2HDMI board](https://github.com/hoglet67/RGBtoHDMI/wiki/Bill-of-Materials-%2812-Bit-Board%29) that [connects](https://github.com/hoglet67/RGBtoHDMI/wiki/Cables#spectrum-128-or-2-grey-and-ql-4-bit-rgbi-ttl) to the Spectrum's RGB and bright TTL signals. green2 is used for bright. You can use the [12 Bit Extender 16 way IDC extender](https://github.com/hoglet67/RGBtoHDMI/wiki/Bill-of-Materials-(12-Bit-Extender)) for convenience if you want to (I did), or skip the extender and connect directly to the internal 12 way IDC.
+
+{{< caption image="/assets/toast28.jpg" text="New extender and new DIN to IDC cable using the bright signal">}}
+
+And voilà, we now have all our 16 colors, including the half bright variants.
+
+{{< caption image="/assets/toast29.jpg" text="We can now see the 4-bit 16 color palette">}}
+
+## What about loading tapes?
+
+I've been using my multisystem [Backbit cartridge](https://store.backbit.io/product/backbit-pro/) on the expansion port to load games and demos, but I wanted to load a game the old fashioned way, from a cassette tape.
+
+Well, sort of.
+
+I have this little device that I bought when I was invited to an event from the [LOAD ZX](https://loadzx.com/en/) museum a few months ago. It's a microcontroller that can read .tap files from the SD card and play them through the 3.5mm jack connector (similar to the [TzxDuino](https://github.com/arananet/TzxDuino-Reloaded)).
+
+{{< caption image="/assets/toast30.jpg" >}}
+
+Well lets connect the stereo to mono cable from the device's audio output to the EAR jack on the Spectrum and press play.
+
+{{< youtube kgPnWzPMANA >}}
+
+There you go, loaded Bubble Bobble the good old way.
+
+What else should I do with this Spectrum?
