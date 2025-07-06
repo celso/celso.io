@@ -162,4 +162,4 @@ In this [video](https://www.youtube.com/watch?v=x-cL_ySr5ds), I'm playing [City 
 
 This thing has keypad and RS232 ports, so I might try some other stuff later, but that's it for today. Had lots of fun doing this, as always.
 
-**EDIT:** I have an [update](/2025/07/02/toastrack-2/).
+**EDIT:** I have an [update](/2025/07/06/toastrack-2/).

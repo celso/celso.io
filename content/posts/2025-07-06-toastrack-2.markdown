@@ -1,8 +1,8 @@
 ---
 categories: spectrum
-date: "2025-07-02T00:08:00Z"
+date: "2025-07-06T00:08:00Z"
 title: ZX Spectrum+ Toastrack Part 2
-thumbnail: "https://celso.io/assets/toast16.jpg"
+thumbnail: "https://celso.io/assets/toast29.jpg"
 ---
 
 This is a quick update from my [Restoring a ZX Spectrum+ Toasrack](/posts/2025/06/28/toastrack/) blog.
