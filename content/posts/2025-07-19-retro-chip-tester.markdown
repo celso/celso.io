@@ -43,7 +43,7 @@ I then tested the first chip, a 4164 DRAM memory. I placed the chip in the ZIF s
 
 {{< caption image="/assets/images/rct9.jpg" text="This 4164 DRAM seems OK">}}
 
-But the RTC is so much more than a tester. It can also read (E)(P)ROMs and dump their contents into an SD Card. It can even program them, with small adapters. Let's go ahead and read the content of a C64 BASIC ROM, the [251913-01](https://ist.uwaterloo.ca/~schepers/roms.html), which is compatible with the 2764 EPROM. I placed the 2764 in the ZIF socket, selected the 2764 from the menu, and pressed the read button. The tester read the ROM and saved it to the SD Card.
+But the RTC is so much more than a tester. It can also read (E)(P)ROMs and dump their contents into an SD Card. It can even program them, with small adapters. Let's go ahead and read the content of a C64 BASIC ROM, the [251913-01](https://ist.uwaterloo.ca/~schepers/roms.html), which is compatible with the 2764 EPROM. I placed the ROM in the ZIF socket, selected the 2764 from the menu, and pressed the read button. The tester read the ROM and saved it to the SD Card.
 
 {{< caption image="/assets/images/rct10.jpg" text="Dumping the contents of the 251913-01 C64 ROM">}}
 
