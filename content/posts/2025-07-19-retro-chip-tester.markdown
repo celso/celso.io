@@ -31,7 +31,7 @@ Of course, no technical project of mine is complete without the occasional #cels
 
 {{< caption image="/assets/images/rct6.jpg" text="Srsly Celso!">}}
 
-After assembling everything, I proceeded to set the fuses of the ATmega2560 and flash it with the latest firmware using avrdude and my AVRISP MKII programmer, which was connected to the ISP headers on the mainboard.
+After assembling everything, I proceeded to set the fuses of the ATmega2560 and flash it with the latest firmware using [avrdude](https://github.com/avrdudes/avrdude) and my [AVRISP MKII](https://www.microchip.com/en-us/development-tool/atavrisp2) programmer, which was connected to the ISP headers on the mainboard.
 
 {{< caption image="/assets/images/rct7.jpg" text="Flashing the firmware">}}
 
