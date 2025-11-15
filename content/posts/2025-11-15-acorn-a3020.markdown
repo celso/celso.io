@@ -2,7 +2,7 @@
 categories: retrocomputing
 date: "2025-11-15T16:00:00Z"
 title: "Computers I never had: the Acorn A3020"
-thumbnail: "https://celso.io/assets/images/rct8.jpg"
+thumbnail: "https://celso.io/assets/a3020-1.jpg"
 ---
 
 The computers that I write about on this blog are mostly machines that I owned when I was younger. We are changing that today. Over the last few months, I’ve been slowly taking free time to work on a machine that I never owned (or could have; they weren’t sold outside the UK), an [Acorn Archimedes](https://en.wikipedia.org/wiki/Acorn_Archimedes) A3020.
