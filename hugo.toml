@@ -23,7 +23,7 @@ pygmentscodefencesguesssyntax = true
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle = """
 👶 From when Mosaic took over Gopher.  
-🏢 Sr. Director of Engineering @ Cloudflare  
+🏢 VP of Engineering @ Cloudflare  
 🕹️ Slightly addicted to retrocomputing"""
 	mathjax = true # enable MathJax support
 	katex = true # enable KaTeX support
