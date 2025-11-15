@@ -2,19 +2,21 @@ baseURL = 'https://celso.io/'
 languageCode = 'en-us'
 title = 'Celso Martinho'
 theme = "archie"
-paginate = 10
 copyright = "© Celso Martinho"
 # Code Highlight
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+[pagination]
+  pagerSize=10
+
 [frontmatter]
-  date = [':filename', ':default']
-  section = ['categories']
+  date=[':filename', ':default']
+  section=['categories']
 
 [permalinks]
-	posts = '/:section/:year/:month/:day/:slugorfilename/'
+	posts = '/:section/:year/:month/:day/:slugorcontentbasename/'
 
 [params]
 	mode="auto" # color-mode → light,dark,toggle or auto
@@ -25,6 +27,10 @@ pygmentscodefencesguesssyntax = true
 🕹️ Slightly addicted to retrocomputing"""
 	mathjax = true # enable MathJax support
 	katex = true # enable KaTeX support
+
+[markup]
+  [markup.goldmark]
+    renderer.unsafe=true
 
 # Social Tags
 
@@ -56,14 +62,19 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "About"
-url = "/about"
+name = "RSS"
+url = "/index.xml"
 weight = 3
 
 [[menu.main]]
-name = "Search"
-url = "#search"
+name = "About"
+url = "/about"
 weight = 4
+
+# [[menu.main]]
+# name = "Search"
+# url = "#search"
+# weight = 4
 
 [module]
 [[module.mounts]]
