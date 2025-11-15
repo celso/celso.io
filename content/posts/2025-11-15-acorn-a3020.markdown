@@ -315,7 +315,7 @@ The drive starts spinning, reads the floppy disk successfully, and I got a dump 
 This process worked wonderfully; I now had the SyQuest driver that I could use with the A3020.
 
 
-However, another thing happened in parallel. Remember the wonderful Stardot forum I mentioned before? A few days earlier, I [posted a question](https://stardot.org.uk/forums/viewtopic.php?p=466578#p466578) about whether someone could get me the!BootSparQ floppy. This community is so amazing. [Ian Jeffray](https://ian.jeffray.uk/), the person behind multiple RISC OS software tools and [hardware projects](https://github.com/IJeffray) for the Acorns, replied to my question and provided me with the dump of the floppy in the forum.
+However, another thing happened in parallel. Remember the wonderful Stardot forum I mentioned before? A few days earlier, I [posted a question](https://stardot.org.uk/forums/viewtopic.php?p=466578#p466578) about whether someone could get me the `!BootSparQ` floppy. This community is so amazing. [Ian Jeffray](https://ian.jeffray.uk/), the person behind multiple RISC OS software tools and [hardware projects](https://github.com/IJeffray) for the Acorns, replied to my question and provided me with the dump of the floppy in the forum.
 
 {{< caption image="/assets/startdot.png" text="Thanks Ian!">}}
 
