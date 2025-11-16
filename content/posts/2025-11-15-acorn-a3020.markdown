@@ -228,7 +228,7 @@ Now that I have a Gotek with FlashFloppy, I have another door to the outside, an
 
 First, I create an extended density 2880Kb floppy disk image, the largest one supported, and I attach it and take note of the device number:
 
-```
+```bash
 $ dd bs=512 count=5760 if=/dev/zero of=floppy.img
 $ hdiutil attach -nomount floppy.img
 /dev/disk5
@@ -236,7 +236,7 @@ $ hdiutil attach -nomount floppy.img
 
 Then I format it to MSDOS:
 
-```
+```bash
 $ newfs_msdos -f 2880 -F 12 -v DOS disk5
 512 bytes per physical sector
 /dev/rdisk5: 5726 sectors in 2863 FAT12 clusters (1024 bytes/cluster)
@@ -245,7 +245,7 @@ bps=512 spc=2 res=1 nft=2 rde=240 sec=5760 mid=0xf0 spf=9 spt=36 hds=2 hid=0 drv
 
 Not I can reattach and mount the image, copy files to it, and unmount it when I'm done:
 
-```
+```bash
 $ hdiutil detach disk5
 $ hdiutil attach floppy.img
 /dev/disk5 /Volumes/DOS
@@ -306,7 +306,7 @@ So I connect my Greaseweazle to a standard PC drive (in my case, I used an Alps 
 
 Then I insert the !BootSpaqQ floppy into the PC drive and run the Greaseweazle tool `gw` to extract its contents to a `scp` file:
 
-```
+```bash
 gw read --revs 5 --tracks c=0-80:h=0-1 output.scp
 ```
 
