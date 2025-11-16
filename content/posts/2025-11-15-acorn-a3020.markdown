@@ -1,11 +1,11 @@
 ---
 categories: retrocomputing
 date: "2025-11-15T16:00:00Z"
-title: "Computers I never had: the Acorn A3020"
+title: "Computers that I never had: the Acorn A3020"
 thumbnail: "https://celso.io/assets/a3020-1.jpg"
 ---
 
-The computers that I write about on this blog are mostly machines that I owned when I was younger. We are changing that today. Over the last few months, I’ve been slowly taking free time to work on a machine that I never owned (or could have; they weren’t sold outside the UK), an [Acorn Archimedes](https://en.wikipedia.org/wiki/Acorn_Archimedes) A3020.
+The computers that I write about on this blog are mostly machines that I owned when I was younger. That changes today. Over the last few months, I’ve been slowly taking free time to work on a machine that I never owned (or could have; they weren’t sold outside the UK), an [Acorn Archimedes](https://en.wikipedia.org/wiki/Acorn_Archimedes) A3020.
 
 {{< caption image="/assets/a3020-1.jpg" text="My Acorn Archimedes A3020">}}
 
@@ -19,7 +19,7 @@ If you want to know more about the history of ARM, which you should, I highly re
 
 It all started when I saw a decent deal to buy one on [Amibay](https://www.amibay.com/) from the UK and took the bait. I’m not going to go into the hell I went through dealing with Portuguese customs when importing this from the UK, but eventually it arrived at my bench.
 
-I always open my machines before powering them on, but doing so on an Acorn is even more critical, given that they're notorious for their inevitable [battery leaks](https://stardot.org.uk/forums/search.php?keywords=battery+leak).
+I always open my new old machines before powering them on, but doing so on an Acorn is even more critical, given that they're notorious for their inevitable [battery leaks](https://stardot.org.uk/forums/search.php?keywords=battery+leak).
 
 {{< caption image="/assets/leaks.png" >}}
 
@@ -35,11 +35,11 @@ Let's take a look at what we have here.
 
 Next, I sprayed and brushed the PCB with isopropyl alcohol to remove the vinegar residue for the final clean and began testing all the traces where I had found damage from the battery corrosion under the microscope.
 
-Battery leaks can be hazardous; they often damage items that are far from the battery and not visible to the naked eye. Sure enough, with the help of the multimeter and the microscope, I found plenty of broken traces, more than I would imagine. Look at this broken track on the back of the PCB.
+Battery leaks can be hazardous; they often damage items that are far from the battery and not visible to the naked eye. Sure enough, with the help of the multimeter and the microscope, I found plenty of broken traces, more than I would imagine. Look at this broken trace on the back of the PCB.
 
 {{< caption image="/assets/a3020-3.jpg" >}}
 
-To fix the corroded traces, I used bodge jumpers. I also replaced the original battery with a CR2032 battery holder and the floppy drive connector. The result isn't pretty, but it works.
+To fix the corroded traces, I used [bodge wires](https://www.eevblog.com/forum/beginners/what_s-the-secret-to-good-bodge-wiring/). I also replaced the original battery with a CR2032 battery holder and a [diode](https://stardot.org.uk/forums/viewtopic.php?t=25354) to prevent the CR2032 from charging, and the floppy drive connector. The result isn't pretty, but it works.
 
 {{< caption image="/assets/a3020-34.jpg" text="It's not pretty, but it works">}}
 
@@ -91,17 +91,17 @@ Now that I have power and I know that the critical components on the PCB, such a
 
 {{< caption image="/assets/a3020-14.jpg" text="This hard disk is as dead as it could be" >}}
 
-Unlike the [A3010](https://arcwiki.org.uk/index.php/A3010), the A3020 actually features an on-board IDE controller, which is beneficial. But it’s not a very good one; it’s very finicky about timings and what it supports from the IDE protocol.
+Unlike the [A3010](https://arcwiki.org.uk/index.php/A3010), the A3020 actually features an on-board IDE controller, but it’s not a very good one; it’s very finicky about timings and what it supports from the IDE protocol.
 
 In retro-computing, CF cards are the default IDE disk replacement; their interface is electrically identical to the ATA (Advanced Technology Attachment) interface, and all that is needed is a physical connector adapter. I try various CF cards that I have lying around until I find one that the controller recognizes (most of the time).
 
-But I don't like it.
+But it's flaky, I don't like it.
 
 After some research, I ended up [ordering](https://www.ebay.es/itm/226501248233) a 2GB Apacer IDE flash Disc-on-Chip from eBay, which is known to work well with the Acorn and doesn’t require any adapter.
 
 {{< caption image="/assets/a3020-15.jpg" text="omfg!">}}
 
-One more problem: how do I format this disk to work on the A3020 and copy files to it? I can boot from ROM, but, believe it or not, there's no tool in ROM that I can use to format the disk. I can't use the floppy drive to copy files because it's broken, so there's just no way this machine can talk with the external world.
+Now, how do I format this disk to work on the A3020 and copy files to it? I can boot from ROM, but, believe it or not, there's no tool in ROM that I can use to format the disk. I can't use the floppy drive to copy files because it's broken, so there's just no way this machine can talk with the external world.
 
 I could possibly mount the IDE disk on another computer using an IDE USB adapter and use [acorn-fdisk](https://manpages.debian.org/bullseye/acorn-fdisk/acorn-fdisk.8.en.html) or an [emulator](https://arcem.sourceforge.net/). However, after reading numerous community forums, I ended up opting for a better solution: running [RISC OS Open](https://www.riscosopen.org/content/downloads/raspberry-pi) on another ARM-based machine, specifically a Raspberry Pi. That’s right, Raspberry Pis run RISC OS.
 
@@ -154,11 +154,11 @@ After doing that to all the springs and assembling everything, the keyboard was 
 
 ## Don't have a mouse
 
-New problem: I don't have a working mouse, which makes it really hard to use RISC OS. Impossible really.
+I don't have a working mouse, which makes it really hard to use RISC OS. Impossible really.
 
-Like other computers from that era, such as the Amiga and Atari, the standard Archimedes mouse utilizes a specific communication protocol, known as [quadrature encoding](https://en.wikipedia.org/wiki/Computer_mouse#Early_mice), to send movement and button signals, and features a less standard 9-way mini-DIN socket.
+Like other computers from that era, such as the Amiga and Atari, the standard Archimedes mouse utilizes a specific communication protocol, known as [quadrature encoding](https://en.wikipedia.org/wiki/Computer_mouse#Early_mice), to send movement and button signals. It also uses a less standard 9-way mini-DIN socket.
 
-My package didn't come with the original mouse. Instead, I received a replacement mouse. This wasn't an unusual setup back in the day. Later versions of RISC OS supported serial mice natively, but not RISC OS 3.1, the most recent version that the A3020 can use.
+My package didn't come with the original mouse. Instead, I received a replacement 3-button serial mouse. This wasn't an unusual setup back in the day. Later versions of RISC OS supported serial mice natively, but not RISC OS 3.1, the most recent version that the A3020 can use.
 
 {{< caption image="/assets/a3020-21.jpg" text="3-button serial mouse connected to the RS-232 port">}}
 
@@ -168,7 +168,7 @@ To get the serial mouse to work on 3.1, I had to download a module called [pcmou
 dir !pcmouse
 rmload pcmouse
 ```
-To make it permanent and load at boot, I coped the `!PCMouse` app to `!Boot.Choices.Boot.Tasks` on the HDD.
+To make it permanent and load at boot, I copied the `!PCMouse` app to `!Boot.Choices.Boot.Tasks` on the HDD.
 
 Other popular options include building a USB HID mouse to quadrature converter, there are [some](https://github.com/IJeffray/WeeMouse) open-source projects we can explore, or [buy one](https://trumouse.com/product/arcmouse-acorn-archimedes-mouse-adapter/), or [convert a mouse](https://www.youtube.com/watch?v=r73GwTQbnXI). I might look into this in the future.
 
@@ -176,7 +176,7 @@ Now I have a working mouse and a bootable hard disk with apps I downloaded from 
 
 ## Can't play games with my monitor
 
-New problem again, games typically use 15-KHz resolutions, not the standard 31-KHz VGA ones. The HP-24uh LED monitor I have on the bench doesn’t support that. I’d need a good old multisync monitor.
+New problem, games typically use 15-KHz resolutions, not the standard 31-KHz VGA ones. The HP-24uh LED monitor I have on the bench doesn’t support that. I’d need a good old multisync monitor.
 
 Luckily, I do have a [GBS-8220 upscaler with GBS-control](/posts/2023/10/12/retro-upscaler/), which I discussed in another blog post. The GBS can take 15-KHz VGA resolutions as input and scale them to 31-KHz with very low latency. I created a profile for the A3020, tweaked a few settings, and got it to work perfectly.
 
@@ -202,7 +202,7 @@ Flashing FlashFloppy wasn’t easy. My Gotek drive has an Artery microcontroller
 
 {{< caption image="/assets/a3020-25.jpg" text="USB-A to USB-A cable">}}
 
-It took me a while to flash EasyFlash, but I finally managed to do it. It’s now time to test it. I create the `FF/FF.CFG` file in the root of the USB stick with the ideal configuration for the A3020:
+It took me a while to flash EasyFlash (ha ha!), but I finally managed to do it. It’s now time to test it. I create the `FF/FF.CFG` file in the root of the USB stick with the ideal configuration for the A3020:
 
 ```
 interface = ibmpc
@@ -214,7 +214,7 @@ I then go to [arcarc.nl](https://arcarc.nl/), download the ADF floppy image for
 
 {{< caption image="/assets/a3020-27.jpg" text="Lemmings on the floppy drive">}}
 
-And there we go, RISC OS now detects a new physical floppy drive `:0` and sure enough, when I open it I can see Lemmings on it.
+And there we go, RISC OS now detects a new physical floppy drive `:0` and indeed, when I open it I can see Lemmings on it.
 
 Next, I want to place the Gotek drive in the exact location as the original drive, making it accessible through the floppy drive hole of the A3020 case. I found the STL file of a 3D model (by [drygol](https://retrohax.net/acorn-archimedes-a3020-refurb-and-mods/)) to do just that, which I printed on my P1S 3D printer. It did the job perfectly.
 
@@ -258,7 +258,7 @@ Now I copy `floppy.img` to the USB flashdrive, put in the Gotek and boot the A30
 
 {{< caption image="/assets/a3020-30.jpg" text="The floppy image has both files in it">}}
 
-Sure enough, the Gotek mounted the image, and RISC OS sees the floppy with the two files I copied into it. They’re ZIP files; [SparkFS](http://www.riscos.com/ftp_space/generic/sparkfs/index.htm) can open them as if they were regular folders. I now have an easy way to transfer files from my computer to the Acorn. If 2880kB isn’t enough, I can always split larger files into multiple floppies using [!Split](https://www.steve-potts.me.uk/software.html).
+As expected, the Gotek mounted the image, and RISC OS sees the floppy with the two files I copied into it. They’re ZIP files; [SparkFS](http://www.riscos.com/ftp_space/generic/sparkfs/index.htm) can open them as if they were regular folders. I now have an easy way to transfer files from my computer to the Acorn. If 2880kB isn’t enough, I can always split larger files into multiple floppies using [!Split](https://www.steve-potts.me.uk/software.html).
 
 ## Got me a RAM upgrade
 
@@ -268,7 +268,7 @@ Luckily, the motherboard has sockets for another 2MB RAM chips. The bad news, th
 
 I didn't want to go through the customs import hell again, so I asked a friend who lives in Lisbon but travels to the UK regularly if he could bring them on his next trip.
 
-Once I obtained the new chips, installing them in the sockets was straightforward. I changed some configuration jumpers on the motherboard, and sure enough, I had 4MB of RAM after rebooting the A3020.
+Once I obtained the new chips, installing them in the sockets was straightforward. I changed some configuration jumpers on the motherboard, and unsurprisingly, I had 4MB of RAM after rebooting the A3020.
 
 {{< caption image="/assets/a3020-39.jpg" text="Four OKI M514800-80Z ZIP DRAM chips">}}
 
@@ -341,6 +341,6 @@ The A3020 is now fully restored, and everything works as expected. I can finally
 
 {{< youtube dMH7bWI84XQ >}}
 
-I hope you enjoyed this post. Feel free to email me or find me on [Bluesky](https://bsky.app/profile/celso.bsky.social) if you have any questions or comments.
+I hope you enjoyed this post. Feel free to email me or find me on [Bluesky](https://bsky.app/profile/celso.bsky.social) or [Two Stop Bits](https://twostopbits.com/item?id=7221) if you have any questions or comments.
 
 [1]: https://archi.medes.live/
