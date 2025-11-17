@@ -243,7 +243,7 @@ $ newfs_msdos -f 2880 -F 12 -v DOS disk5
 bps=512 spc=2 res=1 nft=2 rde=240 sec=5760 mid=0xf0 spf=9 spt=36 hds=2 hid=0 drv=0x00
 ```
 
-Not I can reattach and mount the image, copy files to it, and unmount it when I'm done:
+Now I can reattach and mount the image, copy files to it, and unmount it when I'm done:
 
 ```bash
 $ hdiutil detach disk5
