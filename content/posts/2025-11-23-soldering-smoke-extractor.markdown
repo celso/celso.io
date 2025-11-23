@@ -45,6 +45,6 @@ And this is the final result, an air purifier on the floor with a flexible hose 
 
 ## It works
 
-The hose works as expected; it sure extracts the soldering fumes. I suggest adding a cone to the end of the hose later to collect the fumes more efficiently. For now, this is great.
+The hose works as expected; it sure extracts the soldering fumes. I might add a cone to the end of the hose later to collect the fumes more efficiently later. For now, this is great.
 
 {{< caption image="/assets/fumes-8.gif" text="It works" >}}
