@@ -43,6 +43,12 @@ And this is the final result, an air purifier on the floor with a flexible hose 
 
 {{< caption image="/assets/fumes-7.jpg" text="Final configuration" >}}
 
+## Adding a collector
+
+You can optionally add a collector box to the other end of the hose. This is more efficient than just using the hose directly and also eliminates hose whistling from air pressure.
+
+{{< caption image="/assets/fumes-9.jpg" text="Fumes collector" >}}
+
 ## It works
 
 The hose works as expected; it sure extracts the soldering fumes. I might add a cone to the end of the hose later to collect the fumes more efficiently later. For now, this is great.
