@@ -220,6 +220,7 @@ footer {
 }
 .soc {
   display: flex;
+  max-width: 30px;
   align-items: center;
   border-bottom: none;
 }
