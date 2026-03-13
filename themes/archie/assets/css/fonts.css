@@ -1,3 +1,4 @@
+/* fira-sans-regular - latin */
 @font-face {
     font-family: "Commodore 64 Pixelized";
     src: url("../fonts/c64.eot");
@@ -7,7 +8,7 @@
     url("../fonts/c64.ttf")format("truetype"),
     url("../fonts/c64.svg#Commodore 64 Pixelized")format("svg");
 }
-/* fira-sans-regular - latin */
+
 @font-face {
   font-display: swap;
   font-family: 'Fira Sans';

@@ -2,36 +2,42 @@ baseURL = 'https://celso.io/'
 languageCode = 'en-us'
 title = 'Celso Martinho'
 theme = "archie"
-paginate = 10
 copyright = "© Celso Martinho"
 # Code Highlight
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
+[pagination]
+  pagerSize=10
+
 [frontmatter]
-  date = [':filename', ':default']
-  section = ['categories']
+  date=[':filename', ':default']
+  section=['categories']
 
 [permalinks]
-	posts = '/:section/:year/:month/:day/:slugorfilename/'
+	posts = '/:section/:year/:month/:day/:slugorcontentbasename/'
 
 [params]
 	mode="auto" # color-mode → light,dark,toggle or auto
 	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle = """
 👶 From when Mosaic took over Gopher.  
-🏢 Sr. Director of Engineering @ Cloudflare  
+🏢 VP of Engineering @ Cloudflare  
 🕹️ Slightly addicted to retrocomputing"""
 	mathjax = true # enable MathJax support
 	katex = true # enable KaTeX support
+
+[markup]
+  [markup.goldmark]
+    renderer.unsafe=true
 
 # Social Tags
 
 [[params.social]]
 name = "Bluesky"
 icon = "cloud"
-url = "https://bsky.app/profile/celso.io"
+url = "https://celso.bsky.social/"
 
 [[params.social]]
 name = "GitHub"
@@ -56,9 +62,19 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
+name = "RSS"
+url = "/index.xml"
+weight = 3
+
+[[menu.main]]
 name = "About"
 url = "/about"
-weight = 3
+weight = 4
+
+# [[menu.main]]
+# name = "Search"
+# url = "#search"
+# weight = 4
 
 [module]
 [[module.mounts]]
