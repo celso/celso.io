@@ -1,0 +1,2 @@
+User-agent: CloudflareBrowserRenderingCrawler/1.0
+Disallow: /
