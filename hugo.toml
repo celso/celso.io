@@ -9,7 +9,7 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 [pagination]
-  pagerSize=10
+  pagerSize = 10
 
 [frontmatter]
   date=[':filename', ':default']
@@ -19,18 +19,19 @@ pygmentscodefencesguesssyntax = true
 	posts = '/:section/:year/:month/:day/:slugorcontentbasename/'
 
 [params]
-	mode="auto" # color-mode → light,dark,toggle or auto
-	useCDN=false # don't use CDNs for fonts and icons, instead serve them locally.
+	mode = "auto" # color-mode → light,dark,toggle or auto
+	useCDN = true # don't use CDNs for fonts and icons, instead serve them locally.
 	subtitle = """
 👶 From when Mosaic took over Gopher.  
 🏢 VP of Engineering @ Cloudflare  
-🕹️ Slightly addicted to retrocomputing"""
+🕹️ Slightly addicted to retrocomputing  
+🔍 Hit Ctrl-K to Search"""
 	mathjax = true # enable MathJax support
 	katex = true # enable KaTeX support
 
 [markup]
   [markup.goldmark]
-    renderer.unsafe=true
+    renderer.unsafe = true
 
 # Social Tags
 
