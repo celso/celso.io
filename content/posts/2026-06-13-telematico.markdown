@@ -89,7 +89,7 @@ To trick both devices, I built a simple line voltage injector circuit using an e
 
 {{< caption image="/assets/telematico/loop.jpg" text="The circuit above in a small PCB" >}}
 
-Next, I created a phonebook entry on the Telematico that simply dials “1” (the actual digits don't matter; I just need the software to trigger the hardware relay to go off-hook) and set the connection type to Videotel V23.
+Next, I created a phonebook entry on the Telematico that simply dials “1” (the actual digits don't matter; I just need the software to trigger the hardware relay to go off-hook) and set the connection type to Videotel and V.23 (1200/75 baud).
 
 Time to test. I fired up [minicom](https://en.wikipedia.org/wiki/Minicom) on my Mac, configured the serial port to 115200 bps 8N1, enabled local echo, and issued the manual answer command (ATA). Simultaneously, I told the Telematico to dial. I hear the relay dialing the number "1" and the modems handshaking. A few seconds later CONNECT shows on the screen.
 
