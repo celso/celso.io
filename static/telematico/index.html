@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="KiCadWebView.css" />
+    <script src="KiCadWebView.min.js"></script>
+    <script src="svginject.js"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      /* Override KiCadWebView defaults to fill the viewport */
+      .kicadwrap {
+        max-width: none !important;
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+      }
+      .kicadschematic {
+        width: 100% !important;
+        height: 100% !important;
+        padding-bottom: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="NMS3000-small.svg"
+      id="my_schematic"
+      onload="SVGInject(this, { afterInject: function(img, svg) { KiCadWebView.schematic(svg, window.innerWidth / window.innerHeight); } })"
+    />
+  </body>
+</html>

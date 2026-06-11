@@ -1,0 +1,209 @@
+---
+categories: retrocomputing telematico
+date: "2026-05-31T15:00:00Z"
+title: "Computers that I never had: Telematico"
+thumbnail: "https://celso.io/assets/telematico/1.jpg"
+---
+
+It's been a while. This time I'm continuing the "computers that I never had" series to talk about a project that has been sitting on my bench for literally months waiting less busier times to complete: the Philips Telematico NMS3000.
+
+{{< caption image="/assets/telematico/telematico.jpg" text="The Philips Telematico NMS3000" >}}
+
+The are a couple of reasons why I bought this relic to work on it: it takes me back to the pre-Internet days of modems, X.25 and Videotex, it's simple enough that I think I can fully understand how it works and make it work, it has near zero information about it on the Internet which will force me to discover things on my own, which I love.
+
+## What is Videotex
+
+[Videotex](https://en.wikipedia.org/wiki/Videotex) was an early pre-Internet two-way electronic communication system that allowed users to access information services via the telephone line and a modem and display text and rudimentary graphics on the screen.
+
+A lot of European countries had Videotex services, France had the famous [Minitel](https://en.wikipedia.org/wiki/Minitel), and in Portugal one was provided by [Telepac](https://pt.wikipedia.org/wiki/Telepac). We could access Videotex via a telephone line or a X.25 connection as long as we had the necessary NUA (Network User Address) credentials. The cool thing about our Videotex service was that it provided a bridge to other international services, like the Minitel.
+
+{{< caption image="/assets/telematico/ptvtx.jpg" text="A Portuguese bank announcing their Videotex service (video)" link="https://arquivos.rtp.pt/conteudos/sistema-de-videotexto-do-bnu/" >}}
+
+{{< caption image="/assets/telematico/loewe.jpg" text="The Loewe VTXTEL-CP terminal used in Portugal" >}}
+
+I also remember using the university [X.25](https://en.wikipedia.org/wiki/X.25) connection (before the Internet) to access Minitel, specifically to access [QSD](https://news.ycombinator.com/item?id=24442211), a popular hacker chatroom service. Stories for another day.
+
+{{< caption image="/assets/telematico/qsd.jpg" text="QSD Chat" >}}
+
+## What is the Telematico
+
+The Telematico is a [videotex](https://en.wikipedia.org/wiki/Videotex) terminal launched in 1988 specifically made for the Italian market to access their [Videotel](https://it.wikipedia.org/wiki/Videotel) service, which was similar to the French Minitel, and it allowed customers to access it through a terminal with a modem over the telephone line.
+
+This terminal features a Z80 clocked at 3MHz, 32K ROM, 4K RAM, a 256 byte EEROM to save configurations, a CEPT Videotex Level 1 video decoder and a CCITT V.21 and V.23 (1200 baud) capable modem.
+
+{{< caption image="/assets/telematico/pcb.jpg" text="Telematico PCB" >}}
+
+The Telematico is loosely based on the [MSX1](https://en.wikipedia.org/wiki/MSX#System_specifications) architecture, one that Philips knew very well because their also produced MSX computers, but not really. The ICs on the board are quite standard for this age of computers except the mysterious "Celint" Videotex decoder and video generator chip. More on this later.
+
+Alright let's turn this thing on.
+
+## How do I even power this up?
+
+Like I said before this terminal has near zero information about it online. I couldn't find the user manual or schematics and I bought it bare bones without cables or a power supply. Luckily I did find [one page](https://retroordenadoresorty.blogspot.com/2020/05/ordenador-philips-telematico-nms-3000.html) that had this connectors diagram on it:
+
+{{< caption image="/assets/telematico/connectors.jpg" text="Video and Power connectors" >}}
+
+Well this is a good start. These are standard 8 and 4-pin DIN connectors that I can work with and make cables for.
+
+For the power I'm going to use my DC-DC [PicoPSU-150-XT](https://www.amazon.es/dp/B0045IXKTQ) ATX power supply with an [adapter](https://www.amazon.es/dp/B084WPCBF3) that I can hook wires to. ATX power supplies don't have a 10V line, so I used two diodes in series to lower the 12V line voltage down.
+
+{{< caption image="/assets/telematico/power.jpg" text="PicoPSU power supply for 5V, -5V and 12V converted to 10V" >}}
+
+As for the video the Telematico outputs RGB+sync which works great wich should work great with my [Retro Scaler 2x](https://www.google.com/search?q=Retro+Scaler+2x) to scale and convert the video to HDMI.
+
+{{< caption image="/assets/telematico/scaler.jpg" text="Retro Scaler 2x connected to the Telematico" >}}
+
+One last thing before I power the Telematico on: the way the keyboard connects to the board leaves me very little maneuvering space if I want to probe the components, so I hacked an extension cable for it using jumper wires and blue tape.
+
+{{< caption image="/assets/telematico/ribbon.jpg" text="Retro Scaler 2x connected to the Telematico" >}}
+
+I think we're ready now.
+
+{{< caption image="/assets/telematico/poweron.gif" text="Retro Scaler 2x connected to the Telematico" >}}
+
+When I power it on for the first time the Philips logo shows up on the screen, followed by the phonebook and options menu.
+
+Awesome.
+
+## Bringing the Telematico online
+
+The next step is connecting the terminal to another computer. This seems simple, but it obviously never is. There isn't a serial or parallel port, no expansion port, nothing, the only way out of this computer is its modem.
+
+So my plan is connecting the Telematico modem to a cheap StartUSB USB modem hooked up to my Mac. Easy. Not.
+
+You can't just connect an old modem to a another modem, they expect a real telephone line with certain electrical conditions between them. Specifically they require an active electrical current passing through the line to physically energize the loop so that they can detect that they are "off-hook," and activate their internal circuitry. Without voltage, the modem thinks the line is dead.
+
+So we need to simulate that. This is how I tricked the Telematico modem into thinking it has a line it can dial in into, and a USB modem connected to my Mac into thinking it can answer (ATA) a call:
+
+{{< caption image="/assets/telematico/phoneline.png" text="Injecting 24V to simulate the off-hook voltage of a telephone line" >}}
+
+{{< caption image="/assets/telematico/loop.jpg" text="The circuit above in a small PCB" >}}
+
+So now I created a phonebook entry on the Telematico that just dials "1" (the number doesn't matter, I just the modem to go off-hook and initiate a call) and is of type Videotel V23.
+
+Time to get the Telematico online. I fire up minicom on the Mac, set the serial port to 115200 bps 8N1 and enable local echo, then I type the ATA modem command which instructs it to go "off-hook" and manually answer an incoming call, and at the same I initiate the call on the Telematico. Sure enough, I can hear the handshake negotiation and a few seconds later the two modems CONNECT.
+
+{{< youtube RF16D74dgpI >}}
+
+I can now type stuff in minicom and see it echoed in the Telematico, but something is wrong. If I type "abcdefgh0123456789" I get a garbled version on the other end.
+
+{{< caption image="/assets/telematico/garbled.jpg" text="Definetly not abcdefgh0123456789" >}}
+
+This is surely a parity issue, I think. The norm back them, and I confirmed with the Minitel modem settings, was 7E1, not 8N1. I try 7E1 and nothing changes, same garbled result. Maybe two stop bits? Every data and parity setting I try changes nothing.
+
+Maybe it's the USB modem settings? That wouldn't make any sense, it's different communication layers, I fiddle with every ATS register anyway, nothing.
+
+Maybe it's minicom. I try old school tcl send/expect, fconfigure options, stty options, nothing words.
+
+Maybe the communication settings are fine and it's something with the Telematico decoder or character set, I think, as I start probing stuff with the oscilloscope.
+
+{{< caption image="/assets/telematico/scope.jpg" text="Probing data lines inside the Telematico" >}}
+
+This went on for weeks with any progress. I needed a lot more about the internal details of the Telematico if I was going to solve this, poking around the PCB without a schematics wasn't going to help me. But there is no schematics I can find online.
+
+## I learned KiCad
+
+So I decided that I was going to use this opportunity to check out an old item from my TODO list, learn [KiCad](https://www.kicad.org/), the defacto "cross platform and open source PCB design suite", and in the process I would reverse engineer the Telematico and create its schematics.
+
+I'm not going to lie, this took a long time, a lot of probing, some trial and error, but it was a lot of fun, KiCad is amazing, not as hard to use as it seems on the surface, the community is amazing and there's so much content online to get your started.
+
+So yes, now the Telematico NMS3000 has schematics, you can find the KiCad sources [here](https://github.com/celso/NMS3000/tree/main/schematics), the PDF [here](https://github.com/celso/NMS3000/blob/main/schematics/NMS3000.pdf) or you can just navigate to this [interactive HTML version](/telematico).
+
+Now I know how things work and I know what to probe. Here's the [Intel 8255](https://en.wikipedia.org/wiki/Intel_8255) used for data access between the CPU and the periphirals, including the modem and the keyboard.
+
+{{< caption image="/assets/telematico/schematics1.png" text="Intel 8255 I/O chip" >}}
+
+Here's the EF9810 FSK Modem chip connections.
+
+{{< caption image="/assets/telematico/schematics2.png" text="EF9810 Modem" >}}
+
+One of the fun side effects of knowing how thinks are connected and interoperate together was that I was able to figure the memory map of the Telematico without even having to look at code in the ROM.
+
+{{< caption image="/assets/telematico/schematics3.png" text="This 8-line decoders tells us how the memory map is organized" >}}
+
+## Data payload settings problem, solved
+
+Now that I had the schematics I was able to track down character data coming from the Mac modem all the way to the I/O chip of the Telematico and I quickly realized that something was off.
+
+Suppose that I'm sending the character "a" over the line using 7E1, I expect to see 10 bits on the other end, one 0 start bit, then the data 1000011 bits ("a" character LSB inverted), then a 1 even parity bit, and then a 1 stop bit. That is 0 1000011 1 1.
+
+However what I was receiving was 0 1000011 0 1. The parity bit was wrong for the letter "a", it should be 1, but it's 0.
+
+In fact, no matter what character I was sending, the parity bit was always 0.
+
+It's almost as it's all being sent using 8N1 and not 7E1 which is what I have configured in the Mac terminal to use. How is this possible?
+
+{{< caption image="/assets/telematico/parity.png" text="This 8-line decoders tells us how the memory map is organized" >}}
+
+It turns out that macOS's native AppleUSBACM USB serial driver defaults internally to CS8 (8 data bits) and completely ignores the POSIX command to alter data bit sizes or parity), it is strictly limited to raw binary no parity.
+
+I couldn't believe it. Had I tried this on Linux or Windows and everything would have worked fine.
+
+Anyway, the solution is simple, all we have to do is calculate the even parity bit in user land and send the data as raw binary.
+
+```ts
+const evenParity = (b) => {
+  b &= 0x7f;
+  b ^= b >> 4;
+  b ^= b >> 2;
+  b ^= b >> 1;
+  return b & 1;
+}
+
+const to7E1 = (b) => {
+  const data = b & 0x7f;
+  const parity = evenParity(data);
+  return data | (parity << 7);
+}
+
+const encoded = Buffer.from("abcdefgh0123456789").map(to7E1);
+
+await writeSerial(port, encoded);
+```
+
+And now it works:
+
+{{< caption image="/assets/telematico/notgarbled.jpg" text="Yay" >}}
+
+So now I have good communications with the Telematico. What's next?
+
+## A Videotex server, powered by Cloudflare Workers
+
+Next up, obviously, is I want to simulate a remote Videotex server and have the Telematico connect and interact with it.
+
+I found the datasheet for the misterious Celint Videotex decoder in a dark corner of the Internet, it's actually a [GEC Plessey MR9735](https://github.com/celso/NMS3000/blob/main/datasheets/MR9735-video.pdf) Teletext/Viewdata 625-Line Video Generator, and it gives me enough clues to get me started:
+
+- 24 row x 40 character display.
+- Supports ASCII and oldest [CEPT Level 1](https://en.wikipedia.org/wiki/World_System_Teletext#Level_1_(1976)) Videotex (002 character set).
+- Supports [Viewdata](https://en.wikipedia.org/wiki/Viewdata) encoding.
+
+{{< caption image="/assets/telematico/charmap.jpg" text="002 character set" >}}
+
+Alright, I think I can work with this.
+
+What I plan to do is a Videotex server running on top Cloudflare Workers and Durable Objects that talks to clients over WebSocket connections. Then I run a WebSocket to RS232 proxy on my laptop that talks to my local USB StartTech modem which in turn is connected to the Telematico modem over a telephone line. Finally the cherry on top is that I also want a Web Videotex terminal so that I'm able to use a browser if I want to.
+
+Here's a diagram that helps understand:
+
+{{< caption image="/assets/telematico/diagram.png" text="Diagram of my Cloudflare Workers powered Videotex server" >}}
+
+So I half slop coded the Videotex Server to use [Cloudflare Workers](https://github.com/celso/NMS3000/blob/main/videotex-server/worker/index.ts). A Durable Object is used to handles the client sessions, their state, and their WebSocket connection. A WebSocket message can contain key strokes, videodata frames and other [control codes](https://github.com/celso/NMS3000/blob/main/videotex-server/worker/videotex.ts).
+
+Then I have a Videotex Web Client that can be used with a browser. I coded it with [Vite+React](https://github.com/celso/NMS3000/blob/main/videotex-server/src/main.tsx) and used the fantastic [@techandsoftware/teletext](https://www.npmjs.com/package/@techandsoftware/teletext) package that can render teletext pages to SVG.
+
+{{< caption image="/assets/telematico/webvideotex.png" text="Diagram of my Cloudflare Workers powered Videotex server" >}}
+
+You can actually git it a try at https://videotex.arkanoid.workers.dev/
+
+
+## Playing with the ROM
+
+- Dumping the ROM
+- OneROM and changing the ROM
+
+## Ideas for the future
+
+- A keyboard adapter
+- A RS232 port
+- Learning the boot sequence and reprogramming the ROM
+- Repo with all the code, KiCad schematics and IC datasheets.
