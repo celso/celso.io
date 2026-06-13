@@ -3,10 +3,7 @@ languageCode = 'en-us'
 title = 'Celso Martinho'
 theme = "archie"
 copyright = "© Celso Martinho"
-# Code Highlight
-pygmentsstyle = "monokai"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+
 
 [pagination]
   pagerSize = 10
@@ -32,6 +29,11 @@ pygmentscodefencesguesssyntax = true
 [markup]
   [markup.goldmark]
     renderer.unsafe = true
+  [markup.highlight]
+    style = "solarized-light"
+    codeFences = true
+    guessSyntax = true
+    noClasses = true
 
 # Social Tags
 

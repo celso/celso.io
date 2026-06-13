@@ -21,13 +21,17 @@ hr {
 }
 
 code {
-  background-color: var(--color-background-code-dark, #3a3a3a);
-  color: var(--color-text-dark, #ffffff);
+  background-color: #eee8d5;
+  color: #657b83;
 }
 
 pre {
-  background-color: var(--color-background-pre-dark, #272822);
+  background-color: #fdf6e3;
   border-color: var(--color-border-dark, #0066ff);
+}
+
+pre code {
+  color: #657b83;
 }
 
 blockquote {
@@ -102,7 +106,7 @@ footer {
 }
 
 .highlight {
-  background-color: var(--color-background-pre-dark, #272822);
+  background-color: #fdf6e3;
 }
 
 .soc:hover,
