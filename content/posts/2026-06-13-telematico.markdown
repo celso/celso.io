@@ -13,7 +13,7 @@ There are a couple of reasons why I bought this relic to work on: it takes me ri
 
 ## What is Videotex
 
-For the uninitiated, [Videotex](https://en.wikipedia.org/wiki/Videotex) followed the [Teletext](https://en.wikipedia.org/wiki/Teletext) standard found on TVs in the early 70s and was an early, pre-Internet, two-way electronic communication system enabling users to communicate and interact with information services via standard telephone lines and a terminal with a modem, displaying text and rudimentary graphics on a screen.
+For the uninitiated, [Videotex](https://en.wikipedia.org/wiki/Videotex) followed the [Teletext](https://en.wikipedia.org/wiki/Teletext) standard found on TVs in the early 70s and was an early, pre-Internet, two-way electronic communication system enabling users to communicate and interact with information services via standard telephone lines and a terminal with a modem, displaying text and rudimentary graphics on a screen. Videotex, like [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) was a precursor of the Internet.
 
 A lot of European countries had their own thriving Videotex services. France had the famous [Minitel](https://en.wikipedia.org/wiki/Minitel), and here in Portugal, we had a service provided by the now decease [Telepac](https://pt.wikipedia.org/wiki/Telepac). We could access Videotex via a standard dial-up line or an X.25 packet-switched connection, provided we had the necessary NUA (Network User Address) credentials. The coolest part about our local service was that it provided a bridge to international services—meaning we could jump to the French Minitel network.
 
@@ -23,9 +23,11 @@ A lot of European countries had their own thriving Videotex services. France had
 
 {{< caption image="/assets/telematico/loewe.jpg" text="The Loewe VTXTEL-CP terminal used in Portugal" >}}
 
-I vividly remember using my university’s [X.25](https://en.wikipedia.org/wiki/X.25) connection in the pre-Internet days to access Minitel, specifically to get onto [QSD](https://news.ycombinator.com/item?id=24442211), a somewhat popular hacker chatroom service. But those are stories for another day.
+I vividly remember (ab)using my university’s [X.25](https://en.wikipedia.org/wiki/X.25) connection in the pre-Internet days to access Minitel, specifically to get onto [QSD](https://news.ycombinator.com/item?id=24442211), a somewhat popular hacker chatroom service. But those are stories for another day.
 
 {{< caption image="/assets/telematico/qsd.jpg" text="QSD Chat" >}}
+
+In a way I see Videotext and Gopher as the precursor systems of the Internet.
 
 And yes, it's **Videotex**, not Videotext.
 
@@ -188,6 +190,8 @@ I found the datasheet of the mysterious Celint Videotex decoder in a dark corner
 Alright, I think I can work with this, here's what I'm planning:
 
 {{< caption image="/assets/telematico/diagram.png" text="Diagram of my Cloudflare Workers powered Videotex server" >}}
+
+I roll up my sleeves and start coding. Well, half coding and half vibe-splopping, let's be honest.
 
 The backend runs entirely on [Cloudflare Workers](https://github.com/celso/NMS3000/blob/main/videotex-server/worker/index.ts) using a Durable Object to manage active client sessions, state machines, and real-time WebSocket connections. The server exchanges keystrokes, raw videodata frames, and other terminal control [codes](https://github.com/celso/NMS3000/blob/main/videotex-server/worker/videotex.ts).
 
