@@ -27,8 +27,6 @@ I vividly remember (ab)using my university’s [X.25](https://en.wikipedia.org/w
 
 {{< caption image="/assets/telematico/qsd.jpg" text="QSD Chat" >}}
 
-In a way I see Videotext and Gopher as the precursor systems of the Internet.
-
 And yes, it's **Videotex**, not Videotext.
 
 ## What is the Telematico
