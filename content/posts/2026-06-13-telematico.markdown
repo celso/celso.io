@@ -65,11 +65,11 @@ As for video, the Telematico outputs RGB + sync. This works beautifully with my 
 
 One last hurdle before flip-the-switch time: the way that the keyboard is connected to the mainboard leaves almost zero maneuvering space if you want to probe components while the machine is running. To fix this, I hacked together a quick extension harness using a mess of jumper wires and blue tape.
 
-{{< caption image="/assets/telematico/ribbon.jpg" text="Retro Scaler 2x connected to the Telematico" >}}
+{{< caption image="/assets/telematico/ribbon.jpg" text="DYI keyboard extension" >}}
 
 I think we're ready now.
 
-{{< caption image="/assets/telematico/poweron.gif" text="Retro Scaler 2x connected to the Telematico" >}}
+{{< caption image="/assets/telematico/poweron.gif" text="I turn the Telematico on for the first time" >}}
 
 I flipped the switch. The classic Philips logo materialized on the screen, followed immediately by the dialup phonebook and configuration menus in Italian. Success.
 
