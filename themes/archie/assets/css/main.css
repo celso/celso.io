@@ -111,24 +111,29 @@ figure h4::before {
 code {
   background-color: #f1f1f1;
   padding: 0.1em 0.2em;
+  font-size: 0.85em;
 }
 
 pre {
-  background-color: #ececec;
+  background-color: #fdf6e3;
   line-height: 1.4;
   overflow-x: auto;
   padding: 1em;
 }
 
+.highlight {
+  background-color: #fdf6e3;
+}
+
 .highlight pre ::selection {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   color: inherit;
 }
 
 pre code {
   background-color: transparent;
   color: inherit;
-  font-size: 100%;
+  font-size: 0.85em;
   padding: 0;
 }
 
@@ -220,6 +225,7 @@ footer {
 }
 .soc {
   display: flex;
+  max-width: 30px;
   align-items: center;
   border-bottom: none;
 }

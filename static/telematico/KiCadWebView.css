@@ -1,0 +1,10 @@
+/* KiCadWebView.css */
+.kicadwrap{position:relative;max-width:600px;overflow:hidden;border:1px solid #aaa}
+.kicadpcb,.kicadschematic{width:100%;height:1px;padding-bottom:68.67%;overflow:visible;cursor:move;/*IE*/cursor:zoom-in;display:block}
+.kicadpcb{background:#000}
+.kicadui{position:absolute;right:0;top:0;border:1px solid #555;list-style:none !important;padding:10px !important;margin:0 !important;color:#ccc;background:rgba(0,0,0,0.5)}
+.kicadui LI{-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none;user-select:none}
+.kicadui DIV{width:10px;height:8px;display:inline-block}
+.kicadui INPUT{vertical-align:middle}
+.kicadfind{position:absolute;bottom:0;right:0;margin:0;display:none}
+.kicadfind INPUT{width:110px}
