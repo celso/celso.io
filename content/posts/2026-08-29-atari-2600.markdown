@@ -1,0 +1,91 @@
+---
+categories: retrocomputing vintage-computing electronics
+date: "2026-08-29T15:05:00Z"
+title: "Got an Atari 2600"
+thumbnail: https://celso.io/assets/atari-2600/atari-2600.jpg
+---
+
+When it comes to the computers I owned as a kid, I went from ZX Spectrums to Commodores, mostly Amigas, until Commodore went bankrupt and that was that. But I was always surrounded by friends with other systems, [Amstrads](https://en.wikipedia.org/wiki/Amstrad_CPC) and [MSXes](https://en.wikipedia.org/wiki/Philips_VG-8020) during the 8-bit era, and Atari STs during the 16-bit years. We'd obviously spend a lot of time fighting over each system's technical capabilities, oh the good old home computer religious wars, but I also have fond memories of playing games at their places, on their machines.
+
+One of my earliest memories is from around the 6th grade, when my "rich" friend's father brought him a home game console back from the United States. This was way before I had my first personal computer. I'd go to his place and marvel at this beautiful device. We'd play this rudimentary two-player jet and tank shooter, but in my mind my friend had an arcade machine at home, and it was beyond imaginable.
+
+The console was an [Atari 2600](https://en.wikipedia.org/wiki/Atari_2600), with two iconic [CX40 joysticks](https://en.wikipedia.org/wiki/Atari_CX40_joystick), and the game was [Combat](https://en.wikipedia.org/wiki/Combat_(video_game)).
+
+{{< caption image="/assets/atari-2600/atari-ad.jpg" text="An Atari 2600 Ad from back then" >}}
+
+I don't know how that US Atari 2600 even worked here. I think there was a clunky 220V/110V transformer in the way, and I guess their TV was good enough to handle both PAL and NTSC. I remember everything was in color.
+
+Anyway, fast forward 40 years and I'd been wanting to add the Atari 2600 to my retro collection.
+
+eBay to the rescue: I found a good deal and ended up buying an Atari 2600 VCS 6-switch ["Light Sixer"](https://consolemods.org/wiki/Atari_2600:Atari_2600_Model_Differences), one of the earliest versions, from France.
+
+{{< caption image="/assets/atari-2600/atari-2600.jpg" text="My Atari 2600 VCS 6-switch Light Sixer" >}}
+
+This is a quick blog post showing how I got it working and some mods I did to it.
+
+## Opening it up
+
+When I opened it up I found the board, electronics and switches in surprisingly good condition. No swollen or leaking capacitors, no rust, and the PCB traces and solder joints looked great. "These things were built to last," I thought.
+
+{{< caption image="/assets/atari-2600/board-inside.jpg" text="The board and electronics in surprisingly good shape" >}}
+
+So I just gave it a good clean to remove the dust and a few spider webs, and that was it.
+
+{{< caption image="/assets/atari-2600/cleaned.jpg" text="All cleaned up and ready to go" >}}
+
+The console didn't come with a power adapter, so I had to improvise one. The original is a 9V DC ~500mA power supply with a 3.5mm mono phone plug. I used a cheap USB-C PD to DC converter with a custom-made adapter cable that has the 3.5mm jack. Problem solved.
+
+{{< caption image="/assets/atari-2600/power-adapter.jpg" text="My improvised USB-C PD power adapter with a 3.5mm jack" >}}
+
+## Powering it up and video
+
+The only video and sound output an Atari 2600 has is the RF signal for connecting to old TVs. No composite video, no RGB, nothing. To get the console working on a modern monitor I went for [c0pperdragon](https://github.com/c0pperdragon)'s [TIAdigitizer](https://github.com/c0pperdragon/LumaCode/wiki/TIAdigitizer-(for-Atari-2600)), an add-on board that sits between the PCB socket and the [TIA video chip](https://en.wikipedia.org/wiki/Television_Interface_Adaptor) to produce a LumaCode signal, which can then be decoded by a variant of the RGBtoHDMI open source project and converted to a digital HDMI signal.
+
+{{< caption image="/assets/atari-2600/tiadigitizer.jpg" text="The TIAdigitizer add-on board" >}}
+
+Here is the TIAdigitizer installed.
+
+{{< caption image="/assets/atari-2600/tiadigitizer-installed.jpg" text="The TIAdigitizer installed between the socket and the TIA chip" >}}
+
+For audio there are a few options, but I went with a super-simple [stereo audio mod](https://www.victortrucco.com/Atari/AtariEstereo/AtariEstereo) that only uses two 4.7K pull-up (to 5V) resistors to adjust the voltage levels and two capacitors to filter noise (you can even skip the capacitors and it'll be fine). The TIA outputs two independent voices on pins 12 (AUD1) and 13 (AUD0) that normally get mixed together into a single mono output, but with this mod you can keep them separate and simulate stereo. [Some games](https://forums.atariage.com/topic/351323-atari-2600-stereo-mod-actually-making-a-significant-difference-to-audio-content-or-not/) expect two speakers and make of both channels.
+
+{{< caption image="/assets/atari-2600/stereo-mod.jpg" text="The simple stereo audio mod: two resistors and two capacitors" >}}
+
+The good thing about both mods is that they're non-destructive: I don't have to remove components or cut traces, and I can easily reverse them later if I want to...
+
+... except the case holes. To get both the LumaCode video signal and the audio signals out, I drilled 3 holes for RCA jacks. It hurt a little doing this to the original case, but all things considered it doesn't look too bad.
+
+{{< caption image="/assets/atari-2600/rca-jacks.jpg" text="The three RCA jacks I added: video and stereo audio" >}}
+
+{{< caption image="/assets/atari-2600/rca-jacks-back.jpg" text="The new RCA jacks from the back of the console" >}}
+
+{{< caption image="/assets/atari-2600/rgbtohdmi.jpg" text="My RGBtoHDMI box with the LumaCode decoder" >}}
+
+## Running the first game
+
+Now that I had video and audio, I could hook the 2600 up to my HDMI monitor and test it, right? Wrong. If you power on the console without a cartridge, nothing happens, the screen stays black. The 2600 doesn't have a startup ROM or anything; when it boots it jumps straight to an address inside the game cartridge's ROM (the reset vector).
+
+Luckily I'd also grabbed an original [Pitfall II](https://en.wikipedia.org/wiki/Pitfall_II:_Lost_Caverns) cartridge from eBay. I inserted it into the slot and powered the console on.
+
+{{< caption image="/assets/atari-2600/pitfall-cartridge.jpg" text="The original Pitfall II cartridge inserted in the slot" >}}
+
+Boom, crystal clear video on my monitor and great "stereo" audio.
+
+{{< caption image="/assets/atari-2600/first-boot.jpg" text="Crystal clear video on a modern HDMI monitor" >}}
+
+I then hooked up one of my C64 joysticks. The C64 also uses 9-pin DE-9 joystick connectors, like most other 8-bit computers of this era, so they're compatible.
+
+{{< caption image="/assets/atari-2600/c64-joystick.jpg" text="A C64 joystick works just fine on the 2600" >}}
+
+Sure enough, I could now play Pitfall II (and it's a fun game, I must say).
+
+## Loading games from SD media
+
+The last thing on this project: I ordered a [UNOCART](https://www.16-32bit.eu/unocart) so I can boot any game from an SD card. From my research, it's one of the best options out there for maximum compatibility with all the different game cartridges.
+
+{{< caption image="/assets/atari-2600/unocart.jpg" text="The UNOCART, which loads any 2600 game from an SD card" >}}
+
+So now, 40-something years later, I can play Combat again. All I need is a friend for the second player.
+
+{{< youtube NJmlkRrslxU >}}
+
